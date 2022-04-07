@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:35:01 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 17:05:48 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/07 19:11:51 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	if (!s)
 		return ;
 	while (s[i])
-		f(i, s + i++);
+	{
+		f(i, s + i);
+		i++;
+	}
 }
