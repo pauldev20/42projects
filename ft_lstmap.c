@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:10:34 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/06 15:21:09 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/08 01:08:34 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	while (1)
 	{
-		newlstel = ft_lstnew(lst->content);
+		newlstel = ft_lstnew(f(lst->content));
 		if (!newlstel)
 		{
-			if (!del && newlst)
+			if (newlst)
 				ft_lstclear(&newlst, del);
 			return (NULL);
 		}
-		newlstel->content = f(newlstel->content);
 		ft_lstadd_back(&newlst, newlstel);
 		if (lst->next != NULL)
 			lst = lst->next;

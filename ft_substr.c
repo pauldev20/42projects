@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 01:14:41 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 20:12:24 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/08 01:00:32 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ptr)
 		return (NULL);
-	ft_strlcpy(ptr, (s + start), len + 1);
+	ft_strlcpy(ptr, s + start, len + 1);
 	return (ptr);
 }

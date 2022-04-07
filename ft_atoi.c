@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:39:48 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 16:52:01 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/07 22:59:12 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	char_is_whitespace(char c)
 	return (0);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	long				out;
 	unsigned int		neg;
@@ -41,5 +41,5 @@ int	ft_atoi(char *str)
 	}
 	if (neg)
 		out = out * -1;
-	return (out);
+	return ((int)out);
 }

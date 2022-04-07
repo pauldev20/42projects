@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 15:59:22 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 16:44:53 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/08 01:06:24 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -27,7 +28,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *str);
-void	*ft_memset(char *ptr, int value, size_t num);
+void	*ft_memset(void *ptr, int value, size_t num);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *destination, const void *source, size_t num);
@@ -37,11 +38,11 @@ int		ft_toupper(int ch);
 int		ft_tolower(int ch);
 char	*ft_strchr(const char *str, int character);
 char	*ft_strrchr(const char *str, int character);
-int		ft_strncmp(char *s1, char *s2, unsigned int n);
+int		ft_strncmp(char *s1, char *s2, size_t n);
 void	*ft_memchr(const void *ptr, int value, size_t num);
 int		ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 char	*ft_strnstr(const char	*big, const char *little, size_t len);
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 void	*ft_calloc(size_t num, size_t size);
 char	*ft_strdup(const char *str1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
