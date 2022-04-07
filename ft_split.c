@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 22:33:42 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 16:52:41 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/07 19:51:25 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ char	**ft_split(char const *s, char c)
 		word_start = s;
 		while (*s != c && *s)
 			s++;
-		arr[arr_i++] = ft_substr(s - (s - word_start), 0, s - word_start);
+		arr[arr_i++] = ft_substr(word_start, 0, s - word_start);
 		if (!arr[arr_i - 1])
-			return (free_arr(arr, arr_i));
+			return (free_arr(arr, arr_i - 1));
 	}
 	arr[arr_i] = NULL;
 	return (arr);

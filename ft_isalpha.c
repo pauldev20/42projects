@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:40:12 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 16:21:02 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/07 19:17:42 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalpha(int c)
 {
-	return (((unsigned char)c - 'a' <= 25) || ((unsigned char)c - 'A' <= 25));
+	return (((unsigned)c - 'a' <= 25) || ((unsigned)c - 'A' <= 25));
 }

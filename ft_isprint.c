@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:50:56 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 16:21:09 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/07 19:17:49 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isprint(int c)
 {
-	return ((unsigned char)c - ' ' < 95);
+	return ((unsigned)c - ' ' < 95);
 }
