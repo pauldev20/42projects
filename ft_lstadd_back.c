@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:21:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 23:38:01 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/08 12:34:19 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	if (!lst || !new)
+		return ;
 	if (!(*lst))
 		*lst = new;
 	else
