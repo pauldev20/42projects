@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:29:38 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/08 12:35:48 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/12 16:23:09 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*ptr;
-	t_list	*ptr2;
+	t_list	*tmp;
 
 	if (!lst)
 		return ;
 	ptr = *lst;
-	while (ptr->next != NULL)
+	while (ptr)
 	{
-		ptr2 = ptr;
-		ft_lstdelone(ptr2, del);
-		ptr = ptr2->next;
+		tmp = ptr;
+		ptr = ptr->next;
+		ft_lstdelone(tmp, del);
 	}
-	ft_lstdelone(ptr, del);
 	*lst = NULL;
 }
