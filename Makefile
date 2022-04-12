@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 15:59:47 by pgeeser           #+#    #+#              #
-#    Updated: 2022/04/06 15:59:48 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/04/12 15:30:38 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 NAME = libft.a
 
 # compiler flags
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 # the compiler to be used
-CC	= gcc
+CC = gcc
 
 # all the src/.c files that need to be compiled
 SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c\
@@ -39,12 +39,12 @@ OBJS_BONUS = $(BONUS:.c=.o)
 
 # this rule is responsible for building the executable/archive. It uses the built-in rule: ($(CC) $(CPPFLAGS) $(CFLAGS) -c -o x.o x.c) because .o prerequisites
 $(NAME): $(OBJS)
-	ar -r $(NAME) $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
 all: $(NAME)
 
 bonus: $(OBJS) $(OBJS_BONUS)
-	ar -r $(NAME) $(OBJS) $(OBJS_BONUS)
+	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
 
 # remove the .o files
 clean:
