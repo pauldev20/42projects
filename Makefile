@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 15:59:47 by pgeeser           #+#    #+#              #
-#    Updated: 2022/04/12 15:30:38 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/04/12 16:39:04 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
 
 # the compiler to be used
-CC = gcc
+CC = cc
 
 # all the src/.c files that need to be compiled
 SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c\
