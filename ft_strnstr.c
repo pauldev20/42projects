@@ -6,12 +6,11 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 00:10:06 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/03/24 01:42:47 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/13 16:55:24 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
