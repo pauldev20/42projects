@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 01:23:01 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 22:03:39 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/13 09:15:19 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	dest_length;
-	unsigned int	src_length;
-	unsigned int	count;
+	size_t	dest_length;
+	size_t	src_length;
+	size_t	count;
 
 	dest_length = ft_strlen(dst);
 	if (dest_length > dstsize)
