@@ -6,13 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 13:39:17 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/07 00:26:34 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:02:42 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digits_of_int(long n)
+static int	digits_of_int(long n)
 {
 	int		digits;
 
