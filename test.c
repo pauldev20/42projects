@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:51:46 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/13 15:07:13 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/14 13:41:18 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 
 int	main(void)
 {
-	int	fd;
+	int		fd;
+	char	*test;
 
 	fd = open("test.txt", O_RDONLY);
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
 	return (0);
 }

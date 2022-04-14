@@ -6,36 +6,25 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:57 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/13 15:06:15 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/14 16:59:58 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*ft_memset(void *ptr, int value, size_t num)
+char	*strchr(const char *str, int character)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < num)
-		((unsigned char *)ptr)[i++] = (unsigned char)value;
-	return (ptr);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset((char *)s, 0, n);
-}
-
-void	*ft_calloc(size_t num, size_t size)
-{
-	void	*ptr;
-
-	ptr = malloc(size * num);
-	if (!ptr)
+	if (!str)
 		return (NULL);
-	ft_bzero(ptr, size * num);
-	return (ptr);
+	while (*str)
+	{
+		if (*str == (char)character)
+			return ((char *)str);
+		str++;
+	}
+	if ((char)character == 0)
+		return ((char *)str);
+	return (NULL);
 }
 
 size_t	ft_strlen(const char *str)
@@ -63,24 +52,51 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-char	*strjoin(char *s1, char *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	s_len;
+	char	*ptr;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (len + start > s_len)
+		len = s_len - start;
+	if (start >= s_len)
+		len = 0;
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (i < (len + 1))
+		((unsigned char *)ptr)[i++] = 0;
+	ft_memcpy(ptr, s + start, len);
+	return (ptr);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		s1_len;
 	int		s2_len;
 	char	*ptr;
+	int		i;
 
 	if (!s1)
 	{
-		s1 = ft_calloc(1, sizeof(char));
+		s1 = (char *)malloc(sizeof(char));
 		if (!s1)
 			return (NULL);
 		s1[0] = 0;
 	}
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	ptr = (char *)ft_calloc(s1_len + s2_len + 1, sizeof(char));
+	ptr = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!ptr)
 		return (NULL);
+	i = 0;
+	while (i < (s1_len + s2_len + 1))
+		((unsigned char *)ptr)[i++] = 0;
 	ptr = ft_memcpy(ptr, s1, s1_len);
 	ptr = ft_memcpy(ptr + s1_len, s2, s2_len + 1);
 	free(s1);

@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:29:17 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/13 14:02:23 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/14 16:27:56 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 # endif
 
 char	*get_next_line(int fd);
+size_t	ft_strlen(const char *str);
+void	*ft_memset(void *ptr, int value, size_t num);
+int		ft_strcmp(char *s1, char *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*strjoin(char *s1, char *s2);
+char	*strchr(const char *str, int character);
 
 #endif
