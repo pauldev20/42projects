@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:50 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/15 11:03:37 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/15 10:59:29 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_line(int fd, char *save)
 {
@@ -63,16 +63,16 @@ char	*create_rtn(char *save, char **rtn)
 
 char	*get_next_line(int fd)
 {
-	static char	*save;
+	static char	*save[FD_SETSIZE];
 	char		*rtn;
 
 	if (BUFFER_SIZE <= 0 || fd < 0 || fd > FD_SETSIZE)
 		return (NULL);
-	save = read_line(fd, save);
-	if (!save)
+	save[fd] = read_line(fd, save[fd]);
+	if (!save[fd])
 		return (NULL);
-	save = create_rtn(save, &rtn);
-	if (!save)
+	save[fd] = create_rtn(save[fd], &rtn);
+	if (!save[fd])
 		return (NULL);
 	return (rtn);
 }
