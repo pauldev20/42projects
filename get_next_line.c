@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:50 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/15 11:03:37 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/04/15 12:07:19 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ char	*read_line(int fd, char *save)
 
 	read_rtn = 1;
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf && save)
+		free(save);
 	if (!buf)
+	{
+		free(buf);
 		return (NULL);
+	}
 	while (!strchr(save, '\n') && read_rtn)
 	{
 		read_rtn = read(fd, buf, BUFFER_SIZE);
