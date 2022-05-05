@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:50 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/15 12:06:58 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/05/05 17:28:12 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ char	*read_line(int fd, char *save)
 	if (!buf && save)
 		free(save);
 	if (!buf)
-	{
-		free(buf);
 		return (NULL);
-	}
 	while (!strchr(save, '\n') && read_rtn)
 	{
 		read_rtn = read(fd, buf, BUFFER_SIZE);
@@ -55,7 +52,7 @@ char	*create_rtn(char *save, char **rtn)
 	if (save[rtn_len] == '\n')
 		rtn_len++;
 	(*rtn) = ft_substr(save, 0, rtn_len);
-	if (!*rtn || (!save[rtn_len] && !**rtn))
+	if (!*rtn || !**rtn)
 	{
 		if (*rtn)
 			free(*rtn);
