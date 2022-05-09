@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:50 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/05/05 17:28:12 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:00:09 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ char	*create_rtn(char *save, char **rtn)
 
 char	*get_next_line(int fd)
 {
-	static char	*save[FD_SETSIZE];
+	static char	*save[1024];
 	char		*rtn;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd > FD_SETSIZE)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 1024)
 		return (NULL);
 	save[fd] = read_line(fd, save[fd]);
 	if (!save[fd])
