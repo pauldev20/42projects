@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 23:03:35 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/04/15 12:12:32 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/05/12 11:46:07 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	i = 0;
 	while (*s1)
-		ptr[i++] = s1++;
+		ptr[i++] = *s1++;
 	while (*s2)
 		ptr[i++] = *s2++;
 	return (ptr);
