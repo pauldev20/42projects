@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:50 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/05/09 12:59:57 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/05/14 08:52:05 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ char	*get_next_line(int fd)
 
 	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 1024)
 		return (NULL);
+	rtn = NULL;
 	save = read_line(fd, save);
 	if (!save)
 		return (NULL);
