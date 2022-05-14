@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:31:15 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/05/13 17:09:33 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/05/14 10:16:51 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ typedef struct	s_vars {
 	void	*win;
 	t_data	img;
 	double	zoom;
+	int		lastmx;
+	int		lastmy;
+	double	diffx;
+	double	diffy;
 }				t_vars;
 
 #endif

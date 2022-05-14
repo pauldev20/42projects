@@ -1,14 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 600
+
 int main(void)
 {
-	int real;
-	int imag;
-
-	real = 3;
-	imag = 4;
-
-	real = pow(real, 2) + -1 * pow(imag, 2);
-	imag = 2 * real * imag;
+	printf("%f | %f\n", (3.0 / WIN_WIDTH), (2.0 / WIN_HEIGHT));
 }
