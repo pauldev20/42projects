@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 12:57:13 by pgeeser           #+#    #+#              #
-#    Updated: 2022/07/18 16:03:36 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/07/19 13:46:27 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 
-SRC = fractol.c arguments.c julia.c mandelbrot.c
+SRC = fractol.c arguments.c fractals.c
 
 OBJ = $(SRC:.c=.o)
 

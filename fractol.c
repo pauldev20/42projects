@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:29:29 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/18 16:54:09 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/19 14:21:15 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,21 @@ void	print_pixels(t_vars *vars)
 				frac = calc_julia(xoffset + (x - 1) * xmap, yoffset + (y - 1) * ymap, 50 + (int)(vars->zoom / 10), vars->julia_x, vars->julia_y);
 				// frac = calc_julia((x - WIN_WIDTH / 2.0) * (4.0 / WIN_WIDTH) * (16.0 / (9.0 * vars->zoom)) + vars->diffx, (y - WIN_HEIGHT / 2.0) * (4.0 / WIN_HEIGHT) * (1.0 / vars->zoom) + vars->diffy, 50 + (int)(vars->zoom / 10), vars->julia_x, vars->julia_y);
 
-			if (frac == 50 + (int)(vars->zoom / 10))
+			if (y > (WIN_HEIGHT - (65 + 7)) && x < (30 * 7.3) + 7)
+				*((unsigned int *)(vars->img.addr + ((WIN_HEIGHT - y - 1) * WIN_WIDTH + x - 1))) = 0;
+			else if (frac == 50 + (int)(vars->zoom / 10))
 				*((unsigned int *)(vars->img.addr + ((WIN_HEIGHT - y - 1) * WIN_WIDTH + x - 1))) = 0;
 			else
 				*((unsigned int *)(vars->img.addr + ((WIN_HEIGHT - y - 1) * WIN_WIDTH + x - 1))) = create_color(25, 255, 100, 0) * frac;
 		}
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
+	mlx_string_put(vars->mlx, vars->win, 7, 15, create_color(255, 255, 255, 0), "********** CONTROLS **********");
+	mlx_string_put(vars->mlx, vars->win, 7, 25, create_color(255, 255, 255, 0), "* ZOOM - Mouse Wheel         *");
+	mlx_string_put(vars->mlx, vars->win, 7, 35, create_color(255, 255, 255, 0), "*                            *");
+	mlx_string_put(vars->mlx, vars->win, 7, 45, create_color(255, 255, 255, 0), "*                            *");
+	mlx_string_put(vars->mlx, vars->win, 7, 55, create_color(255, 255, 255, 0), "*                            *");
+	mlx_string_put(vars->mlx, vars->win, 7, 65, create_color(255, 255, 255, 0), "******************************");
 }
 
 int destroy(void *vars)

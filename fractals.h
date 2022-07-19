@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractals.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 13:31:15 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/19 16:59:52 by pgeeser          ###   ########.fr       */
+/*   Created: 2022/07/19 09:30:54 by pgeeser           #+#    #+#             */
+/*   Updated: 2022/07/19 16:45:25 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTALS_H
+# define FRACTALS_H
 
-# include <stdlib.h>
-# include "./minilibx/mlx.h"
+# include <math.h>
 # include "mlx_helpers.h"
-# include "arguments.h"
-# include "fractol.h"
-# include "fractals.h"
 
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 600
+typedef struct	s_komplex {
+	double	real;
+	double	img;
+}				t_komplex;
 
-# define ON_DESTROY 17
-# define ON_EXPOSE 12
+int	calc_julia(double x, double y, int iterations, double x_add, double y_add);
+int	calc_mandel(double x, double y, int iterations);
 
 #endif
