@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:30:54 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/19 16:45:25 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/20 11:40:37 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct	s_komplex {
 	double	img;
 }				t_komplex;
 
-int	calc_julia(double x, double y, int iterations, double x_add, double y_add);
-int	calc_mandel(double x, double y, int iterations);
+int	calc_julia(double x, double y, t_vars *vars);
+int	calc_mandel(double x, double y, t_vars *vars);
 
 #endif
