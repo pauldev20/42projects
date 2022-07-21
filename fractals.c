@@ -6,12 +6,11 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:30:45 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/20 11:53:27 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/21 17:37:26 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
-#include <stdio.h>
 
 t_komplex get_point(double x, double y, t_vars *vars)
 {
@@ -39,12 +38,6 @@ int	calc_julia(double x, double y, t_vars *vars)
 	return (i - 1);
 }
 
-// while (i++ < iterations && Z.real * Z.real + Z.img * Z.img < 4) //sqrt(pow(Z.real, 2) + pow(Z.img, 2))
-// 	{
-// 		tmp = Z.real;
-// 		Z.real = (Z.real + Z.img) * (Z.real - Z.img) + x;
-// 		Z.img = 2 * Z.img * tmp + y;
-// 	}
 int	calc_mandel(double x, double y, t_vars *vars)
 {
 	int			i;

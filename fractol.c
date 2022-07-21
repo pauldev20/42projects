@@ -6,12 +6,11 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:29:29 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/21 15:00:24 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/21 17:37:35 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
