@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 12:57:13 by pgeeser           #+#    #+#              #
-#    Updated: 2022/07/19 13:46:27 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/07/21 17:34:42 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 
-SRC = fractol.c arguments.c fractals.c
+SRC = fractol.c arguments.c fractals.c mlx_helpers.c hooks.c display.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -30,5 +30,13 @@ $(NAME): $(OBJ)
 	mv ft_printf/libftprintf.a .
 	gcc -Wall -g -Werror -Wextra -c $(SRC)
 	$(CC) $(CFLAGS) -L. -lmlx -lft -lftprintf -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
+
+fclean:
+	rm -rf $(NAME)
+	rm -rf $(OBJ)
+	rm -rf libmlx.a
+	rm -rf libft.a
+	rm -rf libftprintf.a
+
 
 .PHONY: all

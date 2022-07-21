@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   hooks.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 13:31:15 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/21 15:03:32 by pgeeser          ###   ########.fr       */
+/*   Created: 2022/07/21 14:52:45 by pgeeser           #+#    #+#             */
+/*   Updated: 2022/07/21 15:00:17 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef HOOKS_H
+# define HOOKS_H
 
 # include <stdlib.h>
-# include "./minilibx/mlx.h"
-# include "mlx_helpers.h"
-# include "arguments.h"
-# include "mlx_helpers.h"
-# include "hooks.h"
 # include "display.h"
 
-# define ON_DESTROY 17
-# define ON_EXPOSE 12
+int destroy(void *vars);
+int	key_hook(int keycode, t_vars *vars);
+int	mouse_down(int button, int x, int y, t_vars *vars);
+int	mouse_up(int button, int x, int y, t_vars *vars);
 
 #endif
