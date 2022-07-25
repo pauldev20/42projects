@@ -6,17 +6,17 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 14:02:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/20 15:13:24 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/25 14:52:34 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arguments.h"
 
-static double ft_atod(char *str)
+static double	ft_atod(char *str)
 {
 	int		sign;
-	int 	num1;
-	int 	len;
+	int		num1;
+	int		len;
 	double	num2;
 
 	sign = 1;
@@ -33,7 +33,7 @@ static double ft_atod(char *str)
 	return ((num1 + num2) * sign);
 }
 
-int handle_cmd_arguments(int argc, char **argv, t_vars *vars)
+int	handle_cmd_arguments(int argc, char **argv, t_vars *vars)
 {
 	(void)vars;
 	if (argc > 1 && ft_strncmp("Mandelbrot", argv[1], 10) == 0)
