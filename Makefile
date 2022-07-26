@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 12:57:13 by pgeeser           #+#    #+#              #
-#    Updated: 2022/07/25 14:27:22 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/07/26 14:32:01 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
 	make -C minilibx
-	make -C libft
+	make bonus -C libft
 	make bonus -C ft_printf
 	mv minilibx/libmlx.a .
 	mv libft/libft.a .

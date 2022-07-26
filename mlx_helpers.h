@@ -46,6 +46,6 @@ typedef struct s_vars {
 }				t_vars;
 
 char	*ft_dtoa(double val);
-int		create_color(unsigned char r, int g, int b, unsigned char t);
+int		create_color(unsigned char r, int g, int b, unsigned char t);	
 
 #endif
