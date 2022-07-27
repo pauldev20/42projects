@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:57:07 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/27 17:52:43 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:42:26 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,21 +100,18 @@ void	put_black_boxes(t_vars *vars)
 		x = 0;
 		while (x++ < WIN_WIDTH)
 		{
-			// fix black box!!
-			if ((!vars->mandelbrot && ((y > (WIN_HEIGHT - (35 + 7))
-							&& x > WIN_WIDTH - ((20 * 7.3) + 7))
-						|| (y > (WIN_HEIGHT - (85 + 7)) && x < (30 * 7.3) + 7)))
-				|| (vars->mandelbrot && ((y > (WIN_HEIGHT - (35 + 7))
+			if ((vars->mandelbrot && ((y > (WIN_HEIGHT - (35 + 7))
 							&& x > WIN_WIDTH - (20 * 7.3 + 7))
 						|| (y > (WIN_HEIGHT - (65 + 7))
+							&& x < (30 * 7.3) + 7)))
+				|| (!vars->mandelbrot
+					&& ((y > (WIN_HEIGHT - (55 + 7))
+							&& x > WIN_WIDTH - ((20 * 7.3) + 7))
+						|| (y > (WIN_HEIGHT - (85 + 7))
 							&& x < (30 * 7.3) + 7))))
-				*((unsigned int *)(vars->img.addr + ((WIN_HEIGHT - y - 1)
-								* WIN_WIDTH + x - 1))) = 0;
+				put_pixel(vars, x, y, 0);
 		}
 	}
-	// needed???
-	print_values(vars);
-	print_controls(vars);
 }
 
 void	print_pixels(t_vars *vars)

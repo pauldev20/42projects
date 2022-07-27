@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/27 17:58:50 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:44:19 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,6 @@ int	mouse_down(int button, int x, int y, t_vars *vars)
 	return (0);
 }
 
-// vars->diffx += (((vars->lastmx - x) / vars->zoom) / (double)WIN_WIDTH) * 2.8;
-// vars->diffy += -((((vars->lastmy - y) / vars->zoom)
-//	/ (double)WIN_HEIGHT) * 2.8);
 int	mouse_up(int button, int x, int y, t_vars *vars)
 {
 	if (button == 1 && (vars->lastmx != x || vars->lastmy != y))

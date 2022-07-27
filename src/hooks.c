@@ -6,11 +6,12 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/27 17:58:41 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/28 00:54:57 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h> //remove
 
 int	destroy(void *vars)
 {
@@ -32,7 +33,6 @@ int	key_hook(int keycode, t_vars *vars)
 
 int	mouse_down(int button, int x, int y, t_vars *vars)
 {
-	// change iterations on zoom
 	if (button == 1)
 	{
 		vars->lastmx = (x - WIN_WIDTH / 2.0) * (4.0 / WIN_WIDTH)
@@ -42,20 +42,20 @@ int	mouse_down(int button, int x, int y, t_vars *vars)
 	}
 	if (button == 5)
 	{
+		vars->iterations *= 1.05;
+		printf("%d\n", vars->iterations);
 		vars->zoom *= 1.5;
 		print_pixels(vars);
 	}
 	else if (button == 4 && vars->zoom > 1)
 	{
+		vars->iterations /= 1.05;
 		vars->zoom /= 1.5;
 		print_pixels(vars);
 	}
 	return (0);
 }
 
-// vars->diffx += (((vars->lastmx - x) / vars->zoom) / (double)WIN_WIDTH) * 2.8;
-// vars->diffy += -((((vars->lastmy - y) / vars->zoom)
-//	/ (double)WIN_HEIGHT) * 2.8);
 int	mouse_up(int button, int x, int y, t_vars *vars)
 {
 	if (button == 1 && (vars->lastmx != x || vars->lastmy != y))

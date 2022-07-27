@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 12:57:13 by pgeeser           #+#    #+#              #
-#    Updated: 2022/07/27 17:50:34 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/07/28 00:10:44 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,12 +45,17 @@ bonus: $(OBJS_BONUS)
 clean:
 	rm -rf $(OBJS)
 	rm -rf $(OBJS_BONUS)
+	make clean -C minilibx
+	make clean -C libft
+	make clean -C ft_printf
 
 fclean: clean
 	rm -rf $(NAME)
 	rm -rf libmlx.a
 	rm -rf libft.a
 	rm -rf libftprintf.a
+	make fclean -C libft
+	make fclean -C ft_printf
 
 re: fclean all
 
