@@ -6,12 +6,11 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/28 00:54:57 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/28 10:30:56 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h> //remove
 
 int	destroy(void *vars)
 {
@@ -43,7 +42,6 @@ int	mouse_down(int button, int x, int y, t_vars *vars)
 	if (button == 5)
 	{
 		vars->iterations *= 1.05;
-		printf("%d\n", vars->iterations);
 		vars->zoom *= 1.5;
 		print_pixels(vars);
 	}
