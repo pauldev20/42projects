@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:31:15 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/27 17:53:16 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:07:05 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 # define WIN_HEIGHT 800
 # define ITERATIONS 50
 
-typedef struct s_komplex {
+typedef struct s_complex {
 	double	real;
 	double	img;
-}				t_komplex;
+}				t_complex;
 
 typedef struct s_data {
 	void	*img;
@@ -54,27 +54,30 @@ typedef struct s_vars {
 	int		frac_color;
 }				t_vars;
 
-int		destroy(void *vars);
-int		key_hook(int keycode, t_vars *vars);
-int		mouse_down(int button, int x, int y, t_vars *vars);
-int		mouse_up(int button, int x, int y, t_vars *vars);
+int			destroy(void *vars);
+int			key_hook(int keycode, t_vars *vars);
+int			mouse_down(int button, int x, int y, t_vars *vars);
+int			mouse_up(int button, int x, int y, t_vars *vars);
 
-int		destroy(void *vars);
-int		key_hook(int keycode, t_vars *vars);
-int		mouse_down(int button, int x, int y, t_vars *vars);
-int		mouse_up(int button, int x, int y, t_vars *vars);
+int			destroy(void *vars);
+int			key_hook(int keycode, t_vars *vars);
+int			mouse_down(int button, int x, int y, t_vars *vars);
+int			mouse_up(int button, int x, int y, t_vars *vars);
 
-int		calc_julia(double x, double y, t_vars *vars);
-int		calc_mandel(double x, double y, t_vars *vars);
-int		calc_fractal(double x, double y, t_vars *vars);
+int			calc_julia(double x, double y, t_vars *vars);
+int			calc_mandel(double x, double y, t_vars *vars);
+int			calc_fractal(double x, double y, t_vars *vars);
 
-void	print_pixels(t_vars *vars);
+void		print_pixels(t_vars *vars);
 
-int		handle_cmd_arguments(int argc, char **argv, t_vars *vars);
+int			handle_cmd_arguments(int argc, char **argv, t_vars *vars);
 
-char	*ft_dtoa(double val);
-int		create_color(unsigned char r, int g, int b, unsigned char t);
-double	ft_atod(char *str);
-void	put_pixel(t_vars *vars, int x, int y, int color);
+int			create_color(unsigned char r, int g, int b, unsigned char t);
+void		put_pixel(t_vars *vars, int x, int y, int color);
+
+t_complex	cmppow(t_complex z, int pow);
+t_complex	cmpadd(t_complex z1, t_complex z2);
+
+double		ft_atod(char *str);
 
 #endif

@@ -6,40 +6,57 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/28 00:44:19 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:03:54 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-int	destroy(void *vars)
-{
-	if (((t_vars *)vars)->img.img)
-		mlx_destroy_image(((t_vars *)vars)->mlx, ((t_vars *)vars)->img.img);
-	if (((t_vars *)vars)->win && ((t_vars *)vars)->img.img)
-		mlx_destroy_window(((t_vars *)vars)->mlx, ((t_vars *)vars)->win);
-	system("leaks fractol"); //remove!!!
-	exit(EXIT_SUCCESS);
-	return (0);
-}
-
 void	julia_hooks(int keycode, t_vars *vars)
 {
-	if (keycode == 30 && !vars->mandelbrot)
+	if (keycode == 30 && vars->fractal == 1)
 		vars->julia_x += 0.1;
-	if (keycode == 30 && !vars->mandelbrot)
+	if (keycode == 30 && vars->fractal == 1)
 		print_pixels(vars);
-	if (keycode == 33 && !vars->mandelbrot)
+	if (keycode == 33 && vars->fractal == 1)
 		vars->julia_x -= 0.1;
-	if (keycode == 33 && !vars->mandelbrot)
+	if (keycode == 33 && vars->fractal == 1)
 		print_pixels(vars);
-	if (keycode == 25 && !vars->mandelbrot)
+	if (keycode == 25 && vars->fractal == 1)
 		vars->julia_y += 0.1;
-	if (keycode == 25 && !vars->mandelbrot)
+	if (keycode == 25 && vars->fractal == 1)
 		print_pixels(vars);
-	if (keycode == 29 && !vars->mandelbrot)
+	if (keycode == 29 && vars->fractal == 1)
 		vars->julia_y -= 0.1;
-	if (keycode == 29 && !vars->mandelbrot)
+	if (keycode == 29 && vars->fractal == 1)
+		print_pixels(vars);
+}
+
+void	movement(int keycode, t_vars *vars)
+{
+	if (keycode == 123)
+		vars->diffx -= 0.5 / (vars->zoom / 2);
+	if (keycode == 123)
+		print_pixels(vars);
+	if (keycode == 124)
+		vars->diffx += 0.5 / (vars->zoom / 2);
+	if (keycode == 124)
+		print_pixels(vars);
+	if (keycode == 126)
+		vars->diffy += 0.5 / (vars->zoom / 2);
+	if (keycode == 126)
+		print_pixels(vars);
+	if (keycode == 125)
+		vars->diffy -= 0.5 / (vars->zoom / 2);
+	if (keycode == 125)
+		print_pixels(vars);
+	if (keycode == 3 && vars->fractal < 2)
+		vars->fractal += 1;
+	if (keycode == 3)
+		print_pixels(vars);
+	if (keycode == 5 && vars->fractal > 0)
+		vars->fractal -= 1;
+	if (keycode == 5)
 		print_pixels(vars);
 }
 
@@ -55,10 +72,6 @@ int	key_hook(int keycode, t_vars *vars)
 		vars->iterations /= 1.5;
 	if (keycode == 27 && vars->iterations > 10)
 		print_pixels(vars);
-	if (keycode == 3)
-		vars->mandelbrot = !vars->mandelbrot;
-	if (keycode == 3)
-		print_pixels(vars);
 	if (keycode == 41)
 		vars->frac_color *= 2;
 	if (keycode == 41)
@@ -68,6 +81,7 @@ int	key_hook(int keycode, t_vars *vars)
 	if (keycode == 39 && vars->frac_color > 1)
 		print_pixels(vars);
 	julia_hooks(keycode, vars);
+	movement(keycode, vars);
 	return (0);
 }
 

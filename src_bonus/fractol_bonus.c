@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:29:29 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/27 17:43:41 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/29 15:07:03 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	main(int argc, char *argv[])
 	vars.diffx = 0;
 	vars.diffy = 0;
 	vars.zoom = 1;
-	vars.mandelbrot = 0;
+	vars.fractal = 0;
+	vars.multibrot = 0;
 	vars.julia_x = 0;
 	vars.julia_y = 0;
 	vars.iterations = 50;

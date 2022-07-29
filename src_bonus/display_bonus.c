@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:57:07 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 10:48:04 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:00:50 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_controls(t_vars *vars)
 		"* CHANGE FRACT.-> f          *");
 	mlx_string_put(vars->mlx, vars->win, 7, 55, create_color(255, 255, 255, 0),
 		"* COLOR        -> :/\"        *");
-	if (!vars->mandelbrot)
+	if (vars->fractal == 1)
 	{
 		mlx_string_put(vars->mlx, vars->win, 7, 65,
 			create_color(255, 255, 255, 0), "* X            -> {/}        *");
@@ -44,7 +44,7 @@ void	put_values(t_vars *vars)
 {
 	char	*str;
 
-	if (!vars->mandelbrot)
+	if (vars->fractal == 1)
 	{
 		str = ft_dtoa(vars->julia_x);
 		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - (20 - 8) * 7.3, 25,
@@ -71,7 +71,7 @@ void	print_values(t_vars *vars)
 	put_values(vars);
 	mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 20 * 7.3, 15,
 		create_color(255, 255, 255, 0), "****** VALUES ******");
-	if (!vars->mandelbrot)
+	if (vars->fractal == 1)
 	{
 		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 20 * 7.3, 25,
 			create_color(255, 255, 255, 0), "* X:               *");
@@ -100,11 +100,11 @@ void	put_black_boxes(t_vars *vars)
 		x = 0;
 		while (x++ < WIN_WIDTH)
 		{
-			if ((vars->mandelbrot && ((y > (WIN_HEIGHT - (35 + 7))
+			if ((vars->fractal != 1 && ((y > (WIN_HEIGHT - (35 + 7))
 							&& x > WIN_WIDTH - (20 * 7.3 + 7))
 						|| (y > (WIN_HEIGHT - (65 + 7))
 							&& x < (30 * 7.3) + 7)))
-				|| (!vars->mandelbrot
+				|| (vars->fractal == 1
 					&& ((y > (WIN_HEIGHT - (55 + 7))
 							&& x > WIN_WIDTH - ((20 * 7.3) + 7))
 						|| (y > (WIN_HEIGHT - (85 + 7))

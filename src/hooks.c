@@ -6,22 +6,11 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/28 10:30:56 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/07/29 13:59:57 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-int	destroy(void *vars)
-{
-	if (((t_vars *)vars)->img.img)
-		mlx_destroy_image(((t_vars *)vars)->mlx, ((t_vars *)vars)->img.img);
-	if (((t_vars *)vars)->win && ((t_vars *)vars)->img.img)
-		mlx_destroy_window(((t_vars *)vars)->mlx, ((t_vars *)vars)->win);
-	system("leaks fractol"); //remove!!!
-	exit(EXIT_SUCCESS);
-	return (0);
-}
 
 int	key_hook(int keycode, t_vars *vars)
 {
