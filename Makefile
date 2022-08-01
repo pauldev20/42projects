@@ -6,12 +6,12 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 12:57:13 by pgeeser           #+#    #+#              #
-#    Updated: 2022/08/01 10:14:41 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/01 10:32:26 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 
