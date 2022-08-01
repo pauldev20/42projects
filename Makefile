@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 12:57:13 by pgeeser           #+#    #+#              #
-#    Updated: 2022/07/29 15:06:25 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/01 10:14:41 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,8 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette $(SRCS) $(SRCS_BONUS)
+	norminette $(SRCS) $(SRCS_BONUS) src/*.h src_bonus/*.h
+	make norm -C libft
+	make norm -C ft_printf
 
 .PHONY: all clean fclean re norm

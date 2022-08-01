@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 16:22:28 by pgeeser           #+#    #+#              #
-#    Updated: 2022/05/20 10:20:10 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/01 10:14:23 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,5 +44,6 @@ re: fclean all
 
 norm:
 	norminette $(SRCS) $(BONUS_SRCS) *.h
+	make norm -C libft
 
 .PHONY:	all bonus clean fclean re norm

@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 09:42:48 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 10:10:22 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	key_hook(int keycode, t_vars *vars)
 		print_pixels(vars);
 	if (keycode == 39 && vars->frac_color > 1)
 		vars->frac_color /= 2;
-	if (keycode == 39 && vars->frac_color > 1)
+	if (keycode == 39)
 		print_pixels(vars);
 	julia_hooks(keycode, vars);
 	movement(keycode, vars);

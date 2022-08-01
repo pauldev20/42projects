@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:57:07 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 09:33:13 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 10:07:27 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_controls(t_vars *vars)
 	mlx_string_put(vars->mlx, vars->win, 7, 35, create_color(255, 255, 255, 0),
 		"* ITERATIONS   -> +/-        *");
 	mlx_string_put(vars->mlx, vars->win, 7, 45, create_color(255, 255, 255, 0),
-		"* CHANGE FRACT.-> f          *");
+		"* CHANGE FRACT.-> f/g        *");
 	mlx_string_put(vars->mlx, vars->win, 7, 55, create_color(255, 255, 255, 0),
 		"* COLOR        -> :/\"        *");
 	if (vars->fractal == 1)

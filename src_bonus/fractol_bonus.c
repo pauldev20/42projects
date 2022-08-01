@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:29:29 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 09:46:11 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:55:38 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 		destroy(&vars, 1);
 	create_win(&vars);
 	print_pixels(&vars);
-	mlx_hook(vars.win, 17, 0, destroy, &vars);
+	mlx_hook(vars.win, 17, 0, destroy_callback, &vars);
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_hook(vars.win, 5, 0, mouse_up, &vars);
 	mlx_hook(vars.win, 4, 0, mouse_down, &vars);

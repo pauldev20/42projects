@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:31:15 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 09:25:03 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:58:22 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int			mouse_up(int button, int x, int y, t_vars *vars);
 // MLX_HELPERS
 int			create_color(unsigned char r, int g, int b, unsigned char t);
 void		put_pixel(t_vars *vars, int x, int y, int color);
+int			destroy_callback(void *vars);
 void		destroy(void *vars, int exitcode);
 void		create_win(t_vars *vars);
 
