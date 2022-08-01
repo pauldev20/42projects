@@ -6,12 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 14:02:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 15:09:35 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:29:53 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
+// FUNCTION FOR PRINTING THE HELPTEXT
 static void	print_helptext(void)
 {
 	ft_printf("################ USAGE ################\n");
@@ -30,6 +31,7 @@ static void	print_helptext(void)
 	ft_printf("#######################################\n");
 }
 
+// FUNCTION TO HANDLE COMMANDLINE ARGUMENTS
 int	handle_cmd_arguments(int argc, char **argv, t_vars *vars)
 {
 	if (argc == 3 && ft_strncmp("Mandelbrot", argv[1], 10) == 0)

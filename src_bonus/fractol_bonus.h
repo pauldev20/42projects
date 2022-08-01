@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:31:15 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 15:05:47 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:46:07 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include "./../libft/libft.h"
 # include "./../ft_printf/ft_printf_bonus.h"
 
-# define ON_DESTROY 17
-# define ON_EXPOSE 12
 # define WIN_WIDTH 1422
 # define WIN_HEIGHT 800
 # define ITERATIONS 50
@@ -55,33 +53,32 @@ typedef struct s_vars {
 	int		multibrot;
 }				t_vars;
 
-int			key_hook(int keycode, t_vars *vars);
-int			mouse_down(int button, int x, int y, t_vars *vars);
-int			mouse_up(int button, int x, int y, t_vars *vars);
-
-int			destroy(void *vars);
-int			key_hook(int keycode, t_vars *vars);
-int			mouse_down(int button, int x, int y, t_vars *vars);
-int			mouse_up(int button, int x, int y, t_vars *vars);
-
-int			calc_julia(double x, double y, t_vars *vars);
-int			calc_mandel(double x, double y, t_vars *vars);
-int			calc_fractal(double x, double y, t_vars *vars);
-
-void		print_controls(t_vars *vars);
-void		print_values(t_vars *vars);
-void		print_pixels(t_vars *vars);
-
+// ARGUMENTS_BONUS
 int			handle_cmd_arguments(int argc, char **argv, t_vars *vars);
 
-int			create_color(unsigned char r, int g, int b, unsigned char t);
-void		put_pixel(t_vars *vars, int x, int y, int color);
-int			destroy(void *vars);
-
+// COMPLEX_BONUS
 t_complex	cmppow(t_complex z, int pow);
 t_complex	cmpadd(t_complex z1, t_complex z2);
 
-double		ft_atod(char *str);
+// DISPLAY_BONUS
+void		print_pixels(t_vars *vars);
+
+// FRACTALS_BONUS
+int			calc_fractal(double x, double y, t_vars *vars);
+
+// HELPERS_BONUS
 char		*ft_dtoa(double val);
+double		ft_atod(char *str);
+
+// HOOKS_BONUS
+int			key_hook(int keycode, t_vars *vars);
+int			mouse_down(int button, int x, int y, t_vars *vars);
+int			mouse_up(int button, int x, int y, t_vars *vars);
+
+// MLX_HELPERS_BONUS
+int			create_color(unsigned char r, int g, int b, unsigned char t);
+void		put_pixel(t_vars *vars, int x, int y, int color);
+void		destroy(void *vars, int exitcode);
+void		create_win(t_vars *vars);
 
 #endif

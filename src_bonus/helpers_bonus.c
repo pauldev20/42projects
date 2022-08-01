@@ -6,13 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 13:59:04 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 16:51:56 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:40:40 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
-#include <stdio.h>
 
+// HELPER FUNCTION OF ft_dtoa
 static int	get_5_zeros(double val)
 {
 	int	i;
@@ -24,6 +24,7 @@ static int	get_5_zeros(double val)
 	return (4 - i);
 }
 
+// HELPER FUNCTION OF ft_dtoa
 static char	*count_and_add_zeros(char *in, double val)
 {
 	int		zeros;
@@ -47,6 +48,7 @@ static char	*count_and_add_zeros(char *in, double val)
 	return (out);
 }
 
+// HELPER FUNCTION OF ft_dtoa
 static char	*ft_decimal_places_join(char *in, double val)
 {
 	char	*str;
@@ -72,6 +74,7 @@ static char	*ft_decimal_places_join(char *in, double val)
 	return (out);
 }
 
+// FUNCTION TO CONVERT DOUBLE TO STRING
 char	*ft_dtoa(double val)
 {
 	char	*str1;
@@ -98,6 +101,7 @@ char	*ft_dtoa(double val)
 	return (str2);
 }
 
+// FUNCTION TO CONVERT STRING TO DOUBLE
 double	ft_atod(char *str)
 {
 	int		sign;

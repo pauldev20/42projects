@@ -6,19 +6,21 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 13:59:57 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:22:52 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+// CALLBACK FUNCTION FOR A KEYPRESS
 int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == 53)
-		destroy(vars);
+		destroy(vars, 0);
 	return (0);
 }
 
+// CALLBACK FUNCTION FOR MOUSE INTERACTION
 int	mouse_down(int button, int x, int y, t_vars *vars)
 {
 	if (button == 1)
@@ -43,6 +45,7 @@ int	mouse_down(int button, int x, int y, t_vars *vars)
 	return (0);
 }
 
+// CALLBACK FUNCTION FOR END OF MOUSE INTERACTION
 int	mouse_up(int button, int x, int y, t_vars *vars)
 {
 	if (button == 1 && (vars->lastmx != x || vars->lastmy != y))

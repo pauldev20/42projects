@@ -6,12 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:57:07 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/27 17:53:00 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:18:46 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+// FUNCTION FOR PRINTING OUT THE PIXELS
 void	print_pixels(t_vars *vars)
 {
 	int		x;

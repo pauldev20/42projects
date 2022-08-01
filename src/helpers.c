@@ -6,12 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:52:03 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 14:52:19 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:20:23 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+// FUNCTION TO CONVERT STRING TO DOUBLE
 double	ft_atod(char *str)
 {
 	int		sign;

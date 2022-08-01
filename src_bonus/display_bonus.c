@@ -6,13 +6,14 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:57:07 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 17:00:50 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:33:13 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void	print_controls(t_vars *vars)
+// FUNCTION FOR PRINTING THE CONTROLS BOX TEXT AND VALUES
+static void	print_controls(t_vars *vars)
 {
 	mlx_string_put(vars->mlx, vars->win, 7, 15, create_color(255, 255, 255, 0),
 		"********** CONTROLS **********");
@@ -40,7 +41,8 @@ void	print_controls(t_vars *vars)
 	}
 }
 
-void	put_values(t_vars *vars)
+// FUNCTION FOR PRINTING THE VALUES BOX VALUES
+static void	put_values(t_vars *vars)
 {
 	char	*str;
 
@@ -66,7 +68,8 @@ void	put_values(t_vars *vars)
 	free(str);
 }
 
-void	print_values(t_vars *vars)
+// FUNCTION FOR PRINTING THE VALUES BOX TEXT
+static void	print_values(t_vars *vars)
 {
 	put_values(vars);
 	mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 20 * 7.3, 15,
@@ -89,7 +92,8 @@ void	print_values(t_vars *vars)
 		create_color(255, 255, 255, 0), "********************");
 }
 
-void	put_black_boxes(t_vars *vars)
+// FUNCTIONS FOR PRINTING BACKGROUND OF VALUES AND CONTROLS BOX
+static void	put_black_boxes(t_vars *vars)
 {	
 	int		x;
 	int		y;
@@ -114,6 +118,7 @@ void	put_black_boxes(t_vars *vars)
 	}
 }
 
+// FUNCTION FOR FILLING THE IMAGE WITH COLOR
 void	print_pixels(t_vars *vars)
 {
 	int		x;

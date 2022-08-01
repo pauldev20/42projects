@@ -6,12 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:10:11 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 14:54:31 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:18:12 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+// POWER OF COMPLEX NUMBER
 t_complex	cmppow(t_complex z, int pow)
 {
 	t_complex	o;
@@ -27,6 +28,7 @@ t_complex	cmppow(t_complex z, int pow)
 	return (o);
 }
 
+// ADDING TWO COMPLEX NUMBERS
 t_complex	cmpadd(t_complex z1, t_complex z2)
 {
 	z1.img += z2.img;

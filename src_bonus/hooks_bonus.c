@@ -6,13 +6,14 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:52:31 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/07/29 17:03:54 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/01 09:42:48 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void	julia_hooks(int keycode, t_vars *vars)
+// CALLBACK FUNCTION FOR JULIA SET SPECIFIC KEYS
+static void	julia_hooks(int keycode, t_vars *vars)
 {
 	if (keycode == 30 && vars->fractal == 1)
 		vars->julia_x += 0.1;
@@ -32,7 +33,8 @@ void	julia_hooks(int keycode, t_vars *vars)
 		print_pixels(vars);
 }
 
-void	movement(int keycode, t_vars *vars)
+// CALLBACK FUNCTION FOR MOVEMENT SPECIFIC KEYS
+static void	movement(int keycode, t_vars *vars)
 {
 	if (keycode == 123)
 		vars->diffx -= 0.5 / (vars->zoom / 2);
@@ -60,10 +62,11 @@ void	movement(int keycode, t_vars *vars)
 		print_pixels(vars);
 }
 
+// CALLBACK FUNCTION FOR A KEYPRESS
 int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == 53)
-		destroy(vars);
+		destroy(vars, 0);
 	if (keycode == 24)
 		vars->iterations *= 1.5;
 	if (keycode == 24)
@@ -85,6 +88,7 @@ int	key_hook(int keycode, t_vars *vars)
 	return (0);
 }
 
+// CALLBACK FUNCTION FOR MOUSE INTERACTION
 int	mouse_down(int button, int x, int y, t_vars *vars)
 {
 	if (button == 1)
@@ -111,6 +115,7 @@ int	mouse_down(int button, int x, int y, t_vars *vars)
 	return (0);
 }
 
+// CALLBACK FUNCTION FOR END OF MOUSE INTERACTION
 int	mouse_up(int button, int x, int y, t_vars *vars)
 {
 	if (button == 1 && (vars->lastmx != x || vars->lastmy != y))
