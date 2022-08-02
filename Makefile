@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/01 11:32:54 by pgeeser           #+#    #+#              #
-#    Updated: 2022/08/02 11:36:51 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/02 14:05:21 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,4 +64,4 @@ norm:
 	make norm -C libft
 	make norm -C ft_printf
 
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re norm bonus
