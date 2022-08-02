@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/01 11:32:54 by pgeeser           #+#    #+#              #
-#    Updated: 2022/08/02 10:45:19 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/02 11:36:51 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRC_SERVER = src/server.c
 OBJS_CLIENT = $(SRC_CLIENT:.c=.o)
 OBJS_SERVER = $(SRC_SERVER:.c=.o)
 
-SRC_CLIENT_BONUS = src_bonus/client.c
-SRC_SERVER_BONUS = src_bonus/server.c
+SRC_CLIENT_BONUS = src_bonus/client_bonus.c
+SRC_SERVER_BONUS = src_bonus/server_bonus.c
 OBJS_CLIENT_BONUS = $(SRC_CLIENT_BONUS:.c=.o)
 OBJS_SERVER_BONUS = $(SRC_SERVER_BONUS:.c=.o)
 
