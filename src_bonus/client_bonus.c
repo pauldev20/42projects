@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:37:00 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/02 10:46:56 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/02 11:28:37 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,12 @@ static void	send_byte(int pid, unsigned char c)
 
 int	main(int argc, char *argv[])
 {
-	int		pid;
+	int					pid;
+	struct sigaction	s_sigaction;
 
-	signal(SIGUSR1, handle_signal);
+	s_sigaction.sa_flags = SA_SIGINFO;
+	s_sigaction.sa_sigaction = handle_signal;
+	sigaction(SIGUSR1, &s_sigaction, NULL);
 	if (argc != 3)
 	{
 		ft_printf("************USAGE************\n");
