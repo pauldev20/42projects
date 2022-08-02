@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:37:00 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/02 13:52:28 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:58:57 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	send_byte(int pid, unsigned char c)
 	g_error_count++;
 }
 
-void	help_text(void)
+static void	help_text(void)
 {
 	ft_printf("************USAGE************\n");
 	ft_printf("*./client PID MESSAGE       *\n");
