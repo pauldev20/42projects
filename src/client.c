@@ -6,11 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:37:00 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/02 11:34:30 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:52:21 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
+
+static int	g_error_count;
 
 static void	send_byte(int pid, unsigned char c)
 {
@@ -20,9 +22,15 @@ static void	send_byte(int pid, unsigned char c)
 	while (i--)
 	{
 		if (c & 0b10000000)
-			kill((pid_t)pid, SIGUSR1);
+		{
+			if (kill((pid_t)pid, SIGUSR1) == -1)
+				g_error_count++;
+		}
 		else
-			kill((pid_t)pid, SIGUSR2);
+		{
+			if (kill((pid_t)pid, SIGUSR2) == -1)
+				g_error_count++;
+		}
 		c <<= 1;
 		usleep(100);
 	}
@@ -48,6 +56,10 @@ int	main(int argc, char *argv[])
 		while (*argv[2])
 			send_byte(pid, *argv[2]++);
 		send_byte(pid, *argv[2]);
+		if (g_error_count > 0)
+			ft_printf("An error occurred while sending message!\n");
+		else
+			ft_printf("The message was sent successfully!\n");
 		return (0);
 	}
 	help_text();
