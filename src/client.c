@@ -6,13 +6,13 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:37:00 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 17:55:45 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/02 10:27:59 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
 
-void	send_byte(int pid, unsigned char c)
+static void	send_byte(int pid, unsigned char c)
 {
 	int	i;
 
@@ -28,28 +28,20 @@ void	send_byte(int pid, unsigned char c)
 	}
 }
 
-void	help_text(void)
-{
-	ft_printf("************USAGE************\n");
-	ft_printf("*./client PID MESSAGE       *\n");
-	ft_printf("*****************************\n");
-}
-
 int	main(int argc, char *argv[])
 {
 	int		pid;
 
-	if (argc == 3)
+	if (argc != 3)
 	{
-		pid = ft_atoi(argv[1]);
-		while (*argv[2])
-			send_byte(pid, *argv[2]++);
-		send_byte(pid, *argv[2]);
-	}
-	else
-	{
-		help_text();
+		ft_printf("************USAGE************\n");
+		ft_printf("*./client PID MESSAGE       *\n");
+		ft_printf("*****************************\n");
 		return (1);
 	}
+	pid = ft_atoi(argv[1]);
+	while (*argv[2])
+		send_byte(pid, *argv[2]++);
+	send_byte(pid, *argv[2]);
 	return (0);
 }

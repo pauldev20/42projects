@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:38:55 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 18:01:16 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/02 10:25:37 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@
 # include <unistd.h>
 # include <signal.h>
 # include "./../ft_printf/ft_printf.h"
-# include "./../libft/libft.h"
 
 #endif

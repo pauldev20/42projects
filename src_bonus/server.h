@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:39:17 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 18:05:40 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/02 10:26:06 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <unistd.h>
 # include <signal.h>
 # include "./../ft_printf/ft_printf.h"
-# include "./../libft/libft.h"
+
+typedef struct s_char {
+	pid_t			sender;
+	unsigned char	c;
+	int				cur_pos;
+}	t_char;
 
 #endif

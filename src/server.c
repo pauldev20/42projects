@@ -6,16 +6,11 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 11:36:57 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/01 17:56:18 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/02 10:28:55 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
-
-typedef struct s_char {
-	unsigned char	c;
-	int				cur_pos;
-}	t_char;
 
 static t_char	g_msg_char;
 
