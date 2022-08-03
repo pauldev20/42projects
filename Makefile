@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 22:40:40 by pgeeser           #+#    #+#              #
-#    Updated: 2022/08/02 22:44:25 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/03 16:57:33 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
 
-SRCS = pushswap.c
+SRCS = pushswap.c operations.c stack_helpers.c operations_both.c
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
@@ -26,6 +26,10 @@ $(NAME): $(OBJS)
 	
 all: $(NAME)
 
+debug:
+	$(CC) $(CFLAGS) -g -c $(SRCS)
+	$(CC) $(CFLAGS) -g -L. -lft -lftprintf $(OBJS) -o $(NAME)
+
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)
 	make clean -C ./libft
@@ -35,6 +39,8 @@ fclean: clean
 	rm -rf $(NAME)
 	make fclean -C ./libft
 	make fclean -C ./ft_printf
+	rm -rf libft.a
+	rm -rf libftprintf.a
 
 re: fclean
 	$(MAKE) all
