@@ -6,15 +6,15 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 22:40:40 by pgeeser           #+#    #+#              #
-#    Updated: 2022/08/03 16:57:33 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/09 23:49:57 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CFLAGS = -Wall -Werror -Wextra
-CC = cc
+CC = gcc
 
-SRCS = pushswap.c operations.c stack_helpers.c operations_both.c
+SRCS = src/stack/operations_both.c src/stack/operations.c src/stack/stack_helpers.c src/stack/stack.c src/pushswap.c src/stack/additional_stack_helpers.c src/stack/additional_stack_helpers_2.c src/stack/validate.c src/small_stack.c src/big_stack.c
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
@@ -27,8 +27,7 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 debug:
-	$(CC) $(CFLAGS) -g -c $(SRCS)
-	$(CC) $(CFLAGS) -g -L. -lft -lftprintf $(OBJS) -o $(NAME)
+	$(MAKE) CFLAGS='-g' re
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)
