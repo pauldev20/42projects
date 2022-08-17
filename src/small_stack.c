@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 16:43:54 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/17 10:51:44 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 11:32:25 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	sort_small(t_stack *stmain, t_stack *sttmp)
 {
 	if (stmain->size == 2 && !stack_is_sorted(stmain))
 		swap(stmain);
-	if (stmain->size == 3)
+	else if (stmain->size == 3)
 		sort_3_stack(stmain);
-	if (stmain->size < 6)
+	else if (stmain->size < 6)
 		sort_5_stack(stmain, sttmp);
 }
