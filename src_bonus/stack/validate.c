@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 23:27:42 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/10 00:48:27 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 10:20:35 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ static int	is_int(char *str)
 	digit = 0;
 	while (*str)
 	{
-		if (*str == '-' && first)
+		if ((*str == '-' || *str == '+' ) && first)
 			first = 0;
 		else if (!ft_isdigit(*str))
 			return (0);
 		else
+		{
+			first = 0;
 			digit++;
+		}
 		str++;
 	}
 	if (*str == '\0' && !first && !digit)

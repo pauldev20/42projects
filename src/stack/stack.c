@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 14:54:42 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/10 00:41:55 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 11:09:38 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ static void	add_to_stack(t_stack **stack, int nb)
 	(*stack)->size += 1;
 }
 
+static void	free_split_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
+}
+
 t_stack	*init_stack(char c, int size)
 {
 	t_stack	*stack;
@@ -45,29 +55,19 @@ t_stack	*init_stack(char c, int size)
 	return (stack);
 }
 
-void	free_split_array(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-		free(array[i++]);
-	free(array);
-}
-
-t_stack	*get_stack(int argc, char **argv, char c)
+t_stack	*get_stack(int argc, char **argv, t_stack *stack)
 {
 	int		i;
 	int		j;
-	t_stack	*stack;
 	char	**array;
 	int		error;
 
 	error = 0;
-	stack = init_stack(c, 0);
 	i = 0;
 	while (i++ < argc && !error)
 	{
+		if (!validate_argv(argv[i - 1]))
+			error = 1;
 		array = ft_split(argv[i - 1], ' ');
 		j = 0;
 		while (array[j++] && !error)

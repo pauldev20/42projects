@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:28:57 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/10 02:06:22 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 10:20:20 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	stacka = get_stack(argc - 1, &argv[1], 'a');
+	stacka = get_stack(argc - 1, &argv[1], init_stack('a', 0));
 	stackb = init_stack('b', stacka->size);
 	index_stack(stacka);
 	while (1)

@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 14:46:45 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/10 00:58:42 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 10:53:02 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack {
 
 // STACK
 t_stack	*init_stack(char c, int size);
-t_stack	*get_stack(int argc, char **argv, char c);
+t_stack	*get_stack(int argc, char **argv, t_stack *stack);
 void	free_stack(t_stack *stack);
 
 // OPERATIONS
@@ -58,5 +58,8 @@ int		int_range_from_bottom(t_stack *stack, int min, int max);
 // VALIDATE
 void	on_error(t_stack *stack);
 int		validate(char *str, t_stack *stack);
+
+// VALIDATE ARGV
+int		validate_argv(char *str);
 
 #endif

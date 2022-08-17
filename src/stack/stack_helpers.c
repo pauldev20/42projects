@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 15:42:22 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/10 01:14:42 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 11:10:33 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,35 +68,6 @@ int	find_next_bigger(t_stack *stack, long long nb)
 	return (moves);
 }
 
-// void	remove_at_index(t_stack *stack, int index)
-// {
-// 	int	*array;
-// 	int	i;
-// 	int	j;
-
-// 	array = stack->array;
-// 	if (stack->size)
-// 	{
-// 		if (stack->size - 1 > 0)
-// 		{
-// 			stack->array = (int *)malloc(sizeof(int) * (stack->size - 1));
-// 			i = 0;
-// 			while (i < index && i++ < stack->size - 1)
-// 				stack->array[i - 1] = array[i - 1];
-// 			i--;
-// 			j = 0;
-// 			while (i + j++ < stack->size - 1)
-// 				stack->array[i + j] = array[i + j + 1];
-// 			stack->size -= 1;
-// 			free(array);
-// 			return ;
-// 		}
-// 		free(stack->array);
-// 		stack->array = NULL;
-// 		stack->size = 0;
-// 	}
-// }
-
 void	remove_at_index(t_stack *stack, int index)
 {
 	int	i;
@@ -121,33 +92,6 @@ void	remove_at_index(t_stack *stack, int index)
 		stack->size = 0;
 	}
 }
-
-// void	add_at_index(t_stack *stack, int index, int nb)
-// {
-// 	int	*array;
-// 	int	i;
-// 	int	j;
-
-// 	array = stack->array;
-// 	stack->array = (int *)malloc(sizeof(int) * (stack->size + 1));
-// 	i = 0;
-// 	if (stack->size)
-// 	{
-// 		while (i < index && i++ < stack->size)
-// 			stack->array[i - 1] = array[i - 1];
-// 		if (i > stack->size)
-// 			i--;
-// 		stack->array[i] = nb;
-// 		j = 0;
-// 		while (i + j++ < stack->size)
-// 			stack->array[i + j] = array[i + j - 1];
-// 		stack->size += 1;
-// 		free(array);
-// 		return ;
-// 	}
-// 	stack->array[i] = nb;
-// 	stack->size += 1;
-// }
 
 void	add_at_index(t_stack *stack, int index, int nb)
 {
