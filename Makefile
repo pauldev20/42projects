@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 22:40:40 by pgeeser           #+#    #+#              #
-#    Updated: 2022/08/17 11:08:09 by pgeeser          ###   ########.fr        #
+#    Updated: 2022/08/17 13:33:22 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = gcc
 SRCS = src/stack/operations_both.c src/stack/operations.c src/stack/stack_helpers.c src/stack/stack.c src/pushswap.c src/stack/additional_stack_helpers.c src/stack/additional_stack_helpers_2.c src/stack/validate.c src/stack/validate_argv.c src/small_stack.c src/big_stack.c
 OBJS = $(SRCS:.c=.o)
 
-SRCS_BONUS = src_bonus/stack/operations_both.c src_bonus/stack/operations.c src_bonus/stack/stack_helpers.c src_bonus/stack/stack.c src_bonus/stack/additional_stack_helpers.c src_bonus/stack/additional_stack_helpers_2.c src_bonus/stack/validate.c src_bonus/stack/validate_argv.c src_bonus/checker.c
+SRCS_BONUS = src_bonus/stack/operations_both.c src_bonus/stack/operations.c src_bonus/stack/stack_helpers.c src_bonus/stack/stack.c src_bonus/stack/additional_stack_helpers.c src_bonus/stack/additional_stack_helpers_2.c src_bonus/stack/validate.c src_bonus/stack/validate_argv.c src_bonus/checker.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 $(NAME): $(OBJS)

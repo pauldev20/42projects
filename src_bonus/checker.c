@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 01:28:57 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/08/17 10:20:20 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 13:28:51 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,19 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack	*stackb;
-	char	buff[10];
-	int		read_bytes;
+	char	*buff;
 
 	if (argc < 2)
 		return (0);
 	stacka = get_stack(argc - 1, &argv[1], init_stack('a', 0));
 	stackb = init_stack('b', stacka->size);
 	index_stack(stacka);
-	while (1)
+	buff = get_next_line(STDIN_FILENO);
+	while (buff)
 	{
-		read_bytes = read(STDIN_FILENO, buff, 10);
-		buff[read_bytes] = '\0';
-		if (!buff[0])
-			break ;
 		parse_operations(stacka, stackb, buff);
+		free(buff);
+		buff = get_next_line(STDIN_FILENO);
 	}
 	if (!stackb->size && stack_is_sorted(stacka))
 		ft_printf("OK\n");
