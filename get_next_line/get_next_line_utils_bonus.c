@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:57 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/05/18 10:37:53 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 13:48:48 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*strchr(const char *str, int character)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	strlen(const char *str)
 {
 	size_t	len;
 
@@ -37,7 +37,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	s_len;
 	char	*ptr;
@@ -45,7 +45,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
+	s_len = strlen(s);
 	if (len + start > s_len)
 		len = s_len - start;
 	if (start >= s_len)
@@ -62,7 +62,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ptr);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*strjoin(char *s1, char *s2)
 {
 	char	*ptr;
 	int		i;
@@ -74,7 +74,7 @@ char	*ft_strjoin(char *s1, char *s2)
 			return (NULL);
 		s1[0] = 0;
 	}
-	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	ptr = malloc(sizeof(char) * (strlen(s1) + strlen(s2) + 1));
 	if (!ptr)
 		return (NULL);
 	i = 0;

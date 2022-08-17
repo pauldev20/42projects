@@ -6,7 +6,7 @@
 /*   By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 13:28:50 by pgeeser           #+#    #+#             */
-/*   Updated: 2022/05/14 08:51:26 by pgeeser          ###   ########.fr       */
+/*   Updated: 2022/08/17 13:49:06 by pgeeser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*read_line(int fd, char *save)
 		if (read_rtn == -1)
 			return (NULL);
 		buf[read_rtn] = '\0';
-		save = ft_strjoin(save, buf);
+		save = strjoin(save, buf);
 	}
 	free(buf);
 	return (save);
@@ -51,7 +51,7 @@ char	*create_rtn(char *save, char **rtn)
 		save_len++;
 	if (save[rtn_len] == '\n')
 		rtn_len++;
-	(*rtn) = ft_substr(save, 0, rtn_len);
+	(*rtn) = substr(save, 0, rtn_len);
 	if (!*rtn || !**rtn)
 	{
 		if (*rtn)
@@ -59,7 +59,7 @@ char	*create_rtn(char *save, char **rtn)
 		free(save);
 		return (NULL);
 	}
-	newsave = ft_substr(save, rtn_len, save_len);
+	newsave = substr(save, rtn_len, save_len);
 	free(save);
 	return (newsave);
 }
