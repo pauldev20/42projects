@@ -2,6 +2,14 @@
 
 rm -rf /finished_init
 
+# -------------------------------- CHECK VARS -------------------------------- #
+if [[ -z $WORDPRESS_DB_NAME || -z $WORDPRESS_DB_USER || -z $WORDPRESS_DB_PASSWORD || -z $WORDPRESS_DB_HOST || -z $DOMAIN_NAME \
+		|| -z $WORDPRESS_TITLE || -z $WORDPRESS_ADMIN_USER || -z $WORDPRESS_ADMIN_PASSWORD || -z $WORDPRESS_ADMIN_EMAIL \
+		|| -z $WORDPRESS_USER || -z $WORDPRESS_EMAIL || -z $WORDPRESS_PASSWORD ]]; then
+	echo -e "\033[0;31mMissing .env vars!\033[0m"
+	exit 1
+fi
+
 if [ ! -f "/var/www/html/wp-config.php" ]; then
 	# ----------------------------- INSTALL WORDPRESS ---------------------------- #
 	mkdir -p /var/www/html

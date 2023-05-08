@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# -------------------------------- CHECK VARS -------------------------------- #
+if [[ -z $DOMAIN_NAME ]]; then
+	echo -e "\033[0;31mMissing .env vars!\033[0m"
+	exit 1
+fi
+
 # -------------------------- CREATE SSL CERTIFICATE -------------------------- #
 # C: Country Name (2 letter code)
 # ST: State or Province Name (full name)
