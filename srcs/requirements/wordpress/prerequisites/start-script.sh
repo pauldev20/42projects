@@ -12,14 +12,15 @@ fi
 
 if ! wp 2> /dev/null ; then
 	# ------------------------------ INSTALL WP-CLI ------------------------------ #
-	mkdir -p /var/www/html
-	cd /var/www/html && rm -rf *
-	chmod 777 /var/www/html
 	curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 	chmod 777 /usr/local/bin/wp
 fi
 
-if [ ! -f /var/www/html/wp-config.php ]; then
+if [ ! -f "/var/www/html/wp-config.php" ]; then
+	mkdir -p /var/www/html
+	cd /var/www/html && rm -rf *
+	chmod 777 /var/www/html
+
 	# ---------------------------- DOWNLOAD WORDPRESS ---------------------------- #
 	wp core download --path=/var/www/html --allow-root
 	mv /wp-config.php /var/www/html/wp-config.php
