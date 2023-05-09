@@ -6,13 +6,13 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/08 02:02:36 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/08 23:05:26 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-	@mkdir -p ./data/wordpress;
-	@mkdir -p ./data/mariadb;
+	@mkdir -p /home/paulgeeser/data/wordpress;
+	@mkdir -p /home/paulgeeser/data/mariadb;
 	@docker-compose -f ./srcs/docker-compose.yml up
 
 down:
@@ -22,7 +22,7 @@ re:
 	@docker-compose -f srcs/docker-compose.yml up --build
 
 clean:
-	@rm -rf ./data
+	@rm -rf /home/paulgeeser/data
 	@docker stop $$(docker ps -qa);\
 	docker rm $$(docker ps -qa);\
 	docker rmi -f $$(docker images -qa);\
