@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/09 18:45:32 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/09 18:51:38 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ re: fclean
 clean: down
 	@docker compose -f ./srcs/docker-compose.yml down --volumes --rmi all
 	docker container prune -f
-	docker rmi $$(docker images -q)
+	docker rmi $$(docker images -q) 2> /dev/null || true
 
 # Stop all containers, delete all containers, images, volumes
 fclean: clean
-	@rm -rf /home/pgeeser/data
+	rm -rf /home/pgeeser/data
 
 .PHONY: all down re clean fclean
