@@ -19,7 +19,7 @@ if ! wp 2> /dev/null ; then
 	chmod 777 /usr/local/bin/wp
 fi
 
-if [ ! -f "/var/www/html/wp-config.php" ]; then
+if [ ! -f /var/www/html/wp-config.php ]; then
 	# ---------------------------- DOWNLOAD WORDPRESS ---------------------------- #
 	wp core download --path=/var/www/html --allow-root
 	mv /wp-config.php /var/www/html/wp-config.php
