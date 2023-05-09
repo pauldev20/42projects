@@ -8,10 +8,9 @@ if [[ -z $MYSQL_ROOT_PASSWORD || -z $MYSQL_USERNAME || -z $MYSQL_PASSWORD ]]; th
 	exit 1
 fi
 
-if ! grep -Fxq "lower_case_table_names=2" "/etc/mysql/mariadb.conf.d/50-server.cnf"; then
+if grep -Fxq "bind-address            = 127.0.0.1" "/etc/mysql/mariadb.conf.d/50-server.cnf"; then
 	# ------------------------------ MARIADB CONFIG ------------------------------ #
 	sed -i '/bind-address            = 127.0.0.1/d' /etc/mysql/mariadb.conf.d/50-server.cnf
-	sed -i 's/\[mysqld\]/\[mysqld\]\nlower_case_table_names=2/g' /etc/mysql/mariadb.conf.d/50-server.cnf
 
 	# ---------------------------- SET MYSQL SETTINGS ---------------------------- #
 	service mysql start
