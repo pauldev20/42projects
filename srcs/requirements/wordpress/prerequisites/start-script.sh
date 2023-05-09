@@ -10,7 +10,7 @@ if [[ -z $WORDPRESS_DB_NAME || -z $WORDPRESS_DB_USER || -z $WORDPRESS_DB_PASSWOR
 	exit 1
 fi
 
-if ! wp 2> /dev/null ; then
+if ! wp ; then
 	# ------------------------------ INSTALL WP-CLI ------------------------------ #
 	curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 	chmod 777 /usr/local/bin/wp
