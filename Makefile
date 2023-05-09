@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/09 18:19:49 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/09 18:43:45 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,10 @@ re: fclean
 	@docker compose -f ./srcs/docker-compose.yml up --build
 
 # Stop all containers, delete all containers, images, volumes and networks
-clean:
-	@docker stop $$(docker ps -qa);\
-	docker rm $$(docker ps -qa);\
-	docker rmi -f $$(docker images -qa);\
-	docker volume rm $$(docker volume ls -q);\
-	docker network rm $$(docker network ls -q);\
+clean: down
+	docker rmi -f $$(docker images -q)
+	docker volume rm $$(docker volume ls -q)
+	docker network rm $$(docker network ls -q)
 
 # Stop all containers, delete all containers, images, volumes
 fclean: clean
