@@ -10,7 +10,7 @@ if [[ -z $WORDPRESS_DB_NAME || -z $WORDPRESS_DB_USER || -z $WORDPRESS_DB_PASSWOR
 	exit 1
 fi
 
-if ! wp ; then
+if ! wp 2> /dev/null ; then
 	# ------------------------------ INSTALL WP-CLI ------------------------------ #
 	mkdir -p /var/www/html
 	cd /var/www/html && rm -rf *
