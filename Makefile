@@ -6,14 +6,14 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/09 17:43:00 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/09 18:05:38 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Create folders for volumes and start docker-compose
 all:
-	@mkdir -p /home/paulgeeser/data/wordpress;
-	@mkdir -p /home/paulgeeser/data/mariadb;
+	@mkdir -p /home/pgeeser/data/wordpress;
+	@mkdir -p /home/pgeeser/data/mariadb;
 	@docker-compose -f ./srcs/docker-compose.yml up
 
 # Stop docker-compose
@@ -34,6 +34,6 @@ clean:
 
 # Stop all containers, delete all containers, images, volumes
 fclean: clean
-	@rm -rf /home/paulgeeser/data
+	@rm -rf /home/pgeeser/data
 
 .PHONY: all down re clean fclean
