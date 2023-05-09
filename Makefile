@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/09 18:45:32 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/09 18:50:44 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,6 @@ clean: down
 
 # Stop all containers, delete all containers, images, volumes
 fclean: clean
-	@rm -rf /home/pgeeser/data
+	rm -rf /home/pgeeser/data
 
 .PHONY: all down re clean fclean
