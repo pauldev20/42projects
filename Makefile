@@ -6,29 +6,34 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/08 23:05:26 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/09 17:43:00 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Create folders for volumes and start docker-compose
 all:
 	@mkdir -p /home/paulgeeser/data/wordpress;
 	@mkdir -p /home/paulgeeser/data/mariadb;
 	@docker-compose -f ./srcs/docker-compose.yml up
 
+# Stop docker-compose
 down:
 	@docker-compose -f ./srcs/docker-compose.yml down
 
-re:
+# Stop docker-compose, delete all containers, images, volumes and networks and start docker-compose
+re: fclean
 	@docker-compose -f srcs/docker-compose.yml up --build
 
+# Stop all containers, delete all containers, images, volumes and networks
 clean:
-	@rm -rf /home/paulgeeser/data
 	@docker stop $$(docker ps -qa);\
 	docker rm $$(docker ps -qa);\
 	docker rmi -f $$(docker images -qa);\
 	docker volume rm $$(docker volume ls -q);\
 	docker network rm $$(docker network ls -q);\
 
-fclean:
+# Stop all containers, delete all containers, images, volumes
+fclean: clean
+	@rm -rf /home/paulgeeser/data
 
 .PHONY: all down re clean fclean
