@@ -11,7 +11,9 @@ fi
 if grep -Fxq "bind-address            = 127.0.0.1" "/etc/mysql/mariadb.conf.d/50-server.cnf"; then
 	# ------------------------------ MARIADB CONFIG ------------------------------ #
 	sed -i '/bind-address            = 127.0.0.1/d' /etc/mysql/mariadb.conf.d/50-server.cnf
+fi
 
+if [ -d "/var/lib/mysql/wordpress" ]; then
 	# ---------------------------- SET MYSQL SETTINGS ---------------------------- #
 	service mysql start
 	sleep 1
