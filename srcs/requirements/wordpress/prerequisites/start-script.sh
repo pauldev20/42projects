@@ -37,10 +37,10 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 
 	wp core install --path=/var/www/html --url=$DOMAIN_NAME --title="$WORDPRESS_TITLE" --admin_user=$WORDPRESS_ADMIN_USER --admin_password=$WORDPRESS_ADMIN_PASSWORD --admin_email=$WORDPRESS_ADMIN_EMAIL --allow-root
 	wp user create $WORDPRESS_USER $WORDPRESS_EMAIL --role=author --user_pass=$WORDPRESS_PASSWORD --path=/var/www/html --allow-root
+	
+	# ----------------------------- UPDATE WORDPRESS ----------------------------- #
+	wp plugin update --path=/var/www/html --all --allow-root
 fi
-
-# ----------------------------- UPDATE WORDPRESS ----------------------------- #
-wp plugin update --path=/var/www/html --all --allow-root
 
 # ----------------------------- CONFIGURE PHP-FPM ---------------------------- #
 sed -i "s/\/run\/php\/php7\.3-fpm\.sock/wordpress:9000/g" /etc/php/7.3/fpm/pool.d/www.conf
