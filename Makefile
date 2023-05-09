@@ -6,7 +6,7 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/09 18:08:48 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/09 18:19:49 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,15 @@
 all:
 	@mkdir -p /home/pgeeser/data/wordpress;
 	@mkdir -p /home/pgeeser/data/mariadb;
-	@docker-compose -f ./srcs/docker-compose.yml up
+	@docker	compose -f ./srcs/docker-compose.yml up
 
 # Stop docker-compose
 down:
-	@docker-compose -f ./srcs/docker-compose.yml down
+	@docker compose -f ./srcs/docker-compose.yml down
 
 # Stop docker-compose, delete all containers, images, volumes and networks and start docker-compose
 re: fclean
-	@docker-compose -f ./srcs/docker-compose.yml up --build
+	@docker compose -f ./srcs/docker-compose.yml up --build
 
 # Stop all containers, delete all containers, images, volumes and networks
 clean:
