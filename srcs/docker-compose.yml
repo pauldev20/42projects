@@ -7,14 +7,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/paulgeeser/data/wordpress
+      device: /home/pgeeser/data/wordpress
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/paulgeeser/data/mariadb
+      device: /home/pgeeser/data/mariadb
 
 services:
   mariadb:
