@@ -19,9 +19,7 @@ volumes:
 services:
   mariadb:
     container_name: mariadb
-    build:
-      context: ../..
-      dockerfile: ./requirements/mariadb/Dockerfile
+    build: ./requirements/mariadb
     restart: unless-stopped
     networks:
       - wp-net
@@ -29,14 +27,10 @@ services:
       - .env
     volumes:
       - mariadb:/var/lib/mysql
-    image:
-      mariadb
 
   nginx:
     container_name: nginx
-    build:
-      context: ../..
-      dockerfile: ./requirements/nginx/Dockerfile
+    build: ./requirements/nginx
     restart: unless-stopped
     depends_on:
       wordpress:
@@ -49,14 +43,10 @@ services:
       - "443:443"
     volumes:
       - wordpress:/var/www/html
-    image:
-      nginx
   
   wordpress:
     container_name: wordpress
-    build:
-      context: ../..
-      dockerfile: ./requirements/wordpress/Dockerfile
+    build: ./requirements/wordpress
     restart: unless-stopped
     depends_on:
       mariadb:
@@ -67,8 +57,6 @@ services:
       - .env
     volumes:
       - wordpress:/var/www/html
-    image:
-      wordpress
 
 networks:
   wp-net:
