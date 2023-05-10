@@ -6,23 +6,23 @@
 #    By: pgeeser <pgeeser@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 15:30:42 by pgeeser           #+#    #+#              #
-#    Updated: 2023/05/10 02:33:03 by pgeeser          ###   ########.fr        #
+#    Updated: 2023/05/10 14:24:35 by pgeeser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Create folders for volumes and start docker-compose
 all:
-	@mkdir -p ~/data/wordpress;
-	@mkdir -p ~/data/mariadb;
-	@docker	compose -f ./srcs/docker-compose.yml up
+	mkdir -p ~/data/wordpress;
+	mkdir -p ~/data/mariadb;
+	docker	compose -f ./srcs/docker-compose.yml up
 
 # Stop docker-compose
 down:
-	@docker compose -f ./srcs/docker-compose.yml down
+	docker compose -f ./srcs/docker-compose.yml down
 
 # Stop docker-compose, delete all containers, images, volumes and networks and start docker-compose
 re: fclean
-	@docker compose -f ./srcs/docker-compose.yml up --build
+	docker compose -f ./srcs/docker-compose.yml up --build
 
 # Stop all containers, delete all containers, images, volumes and networks
 clean: down
@@ -31,7 +31,7 @@ clean: down
 
 # Stop all containers, delete all containers, images, volumes
 fclean: clean
-	@docker compose -f ./srcs/docker-compose.yml down --volumes --rmi all
+	docker compose -f ./srcs/docker-compose.yml down --volumes --rmi all
 	sudo rm -rf ~/data
 
 .PHONY: all down re clean fclean
