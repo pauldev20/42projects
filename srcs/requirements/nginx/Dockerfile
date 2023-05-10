@@ -1,27 +1,22 @@
 FROM debian:buster
 
-# Metadata
+# --------------------------------- METADATA --------------------------------- #
 LABEL version="1.0"
 LABEL description="NGINX Server"
 LABEL author="pgeeser"
 
-# Update and upgrade
-RUN apt-get -y update
-RUN apt-get -y upgrade
-
-# Install nginx
+# ------------------------ UPDATE, UPGRADE AND INSTALL ----------------------- #
+RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install nginx openssl
-
-# Clean up
 RUN apt-get -y clean
 
-# Copying needed files (prerequisites)
+# ----------------------- COPY DEPENDENCIES AND CONFIGS ---------------------- #
 COPY ./prerequisites/start-script.sh /start-script.sh
 RUN chmod 777 /start-script.sh
 RUN rm -rf /etc/nginx/sites-enabled/default
 COPY ./prerequisites/custom.conf /etc/nginx/sites-enabled/custom
 
-# Expose only port 443
+# ------------------------------ PORT FORWARDING ----------------------------- #
 EXPOSE 443
 
 # Defaults that need to be set before starting nginx
